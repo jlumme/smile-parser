@@ -1,0 +1,50 @@
+{
+  "name": "smile-parser",
+  "version": "0.0.1",
+  "description": "Emoji parser written in javascript",
+  "main": "./lib/index.js",
+  "repository": "https://github.com/jlumme/smile-parser.git",
+  "author": "jlumme <jesse.lumme@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --coverage",
+    "prepublish": "rimraf ./lib/* && babel src -d lib"
+  },
+  "dependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.22.1",
+    "babel-preset-es2015": "^6.22.0"
+  },
+  "devDependencies": {
+    "babel-jest": "^18.0.0",
+    "jest": "^18.1.0",
+    "jest-cli": "^18.1.0",
+    "rimraf": "^2.5.4",
+    "standard": "^8.6.0"
+  },
+  "jest": {
+    "transform": {
+      ".*": "<rootDir>/node_modules/babel-jest"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "es6"
+    ],
+    "collectCoverageFrom": [
+      "**/*.js",
+      "!**/node_modules/**",
+      "!**/coverage/**",
+      "!**/lib/**"
+    ]
+  },
+  "keywords": [
+    "emoji",
+    "smileys",
+    "emoticon"
+  ],
+  "bugs": {
+    "url": "https://github.com/pladaria/react-emojione/issues"
+  },
+  "homepage": "https://github.com/pladaria/react-emojione#readme"
+}
