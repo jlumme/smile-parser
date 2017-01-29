@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/jlumme/smile-parser.svg?branch=master)](https://travis-ci.org/jlumme/smile-parser)
 ## smile-parser
 This is a small library which takes a string, parses emojis out and replaces them with html image tags and returns the string.
 
@@ -5,8 +6,8 @@ Currently supports only apple emojis hosted separately
 
 ## Usage
 
-1. Install and require the package
-2. Define options for the smile-parser
+* Install and require the package
+* Define options for the smile-parser
 ```
 const emojiOpts = {
   url: https://demo.url/emojis/
@@ -14,7 +15,7 @@ const emojiOpts = {
 ```
   * you need to host emojis somewhere and give the url to emoji folder in options
 
-3. Run smileParse to a string
+* Run smileParse to a string
 ```
 smileParse(string, emojiOpts)
 ```
