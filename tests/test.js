@@ -14,10 +14,11 @@ describe('smileParse plain text', () => {
 
 describe('smileParse :emoji: parsing', () => {
   const mockOptions = {
-    url: 'https://mock/'
+    url: 'https://mock/',
+    styles: 'height: 21px; position: relative; top: -3px;'
   }
   it('should parse :smile: emoji', () => {
-    expect(smileParse(':smile:', mockOptions)).toEqual('<img src="https://mock/1f604.png" alt="smile" />')
+    expect(smileParse(':smile:', mockOptions)).toEqual('<img style="height: 21px; position: relative; top: -3px;" src="https://mock/1f604.png" alt="smile" />')
   })
 
   it('should return not found emojis without ::', () => {
@@ -25,14 +26,14 @@ describe('smileParse :emoji: parsing', () => {
   })
 
   it('should parse :smile: emoji in middle of text', () => {
-    expect(smileParse('asd :smile: asd', mockOptions)).toEqual('asd <img src="https://mock/1f604.png" alt="smile" /> asd')
+    expect(smileParse('asd :smile: asd', mockOptions)).toEqual('asd <img style="height: 21px; position: relative; top: -3px;" src="https://mock/1f604.png" alt="smile" /> asd')
   })
 
   it('should parse two :smile: emojis in a row without a space', () => {
-    expect(smileParse(':smile::smile:', mockOptions)).toEqual('<img src="https://mock/1f604.png" alt="smile" /><img src="https://mock/1f604.png" alt="smile" />')
+    expect(smileParse(':smile::smile:', mockOptions)).toEqual('<img style="height: 21px; position: relative; top: -3px;" src="https://mock/1f604.png" alt="smile" /><img style="height: 21px; position: relative; top: -3px;" src="https://mock/1f604.png" alt="smile" />')
   })
 
   it('should parse two :smile: emojis in a row with a space', () => {
-    expect(smileParse(':smile: :smile:', mockOptions)).toEqual('<img src="https://mock/1f604.png" alt="smile" /> <img src="https://mock/1f604.png" alt="smile" />')
+    expect(smileParse(':smile: :smile:', mockOptions)).toEqual('<img style="height: 21px; position: relative; top: -3px;" src="https://mock/1f604.png" alt="smile" /> <img style="height: 21px; position: relative; top: -3px;" src="https://mock/1f604.png" alt="smile" />')
   })
 })

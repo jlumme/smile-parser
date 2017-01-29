@@ -6,7 +6,7 @@ export const smileParse = (str, options) => {
   while ((emoji = regex.exec(str)) !== null) {
     let emoticon = emojis.filter((emo) => emo.emoji === `${emoji[0]}`)
     try {
-      str = str.replace(emoji[0], `<img src="${options.url}${emoticon[0].value}.png" alt="${emoji[1]}" />`)
+      str = str.replace(emoji[0], `<img style="${options.styles}" src="${options.url}${emoticon[0].value}.png" alt="${emoji[1]}" />`)
     } catch (e) {
       str = str.replace(emoji[0], emoji[1])
     }
