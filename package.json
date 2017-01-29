@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest --coverage",
-    "prepublish": "rimraf ./lib/* && babel src -d lib"
+    "prepublish": "rimraf ./lib/* && cp ./src/emoji.json ./lib/emoji.json && babel src -d lib"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
