@@ -1,4 +1,4 @@
-import { smileParse } from '../src/index.js'
+import { smileParse } from '../index.js'
 
 describe('smileParse', () => {
   it('function should exist', () => {

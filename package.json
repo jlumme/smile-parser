@@ -2,13 +2,13 @@
   "name": "smile-parser",
   "version": "0.0.3",
   "description": "Emoji parser written in javascript",
-  "main": "./lib/index.js",
+  "main": "./lib/smile_parser.js",
   "repository": "https://github.com/jlumme/smile-parser.git",
   "author": "jlumme <jesse.lumme@gmail.com>",
   "license": "MIT",
   "scripts": {
     "test": "jest --coverage",
-    "prepublish": "rimraf ./lib/* && cp ./src/emoji.json ./lib/emoji.json && babel src -d lib"
+    "prepublish": "rimraf ./lib/* && babel src -d lib && cp ./src/emoji.json ./lib/emoji.json"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
