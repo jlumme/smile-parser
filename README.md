@@ -3,7 +3,12 @@
 ## smile-parser
 This is a small library which takes a string, parses emojis out and replaces them with html image tags and returns the string.
 
-Currently supports only apple emojis hosted separately
+Parses emojis from given string with syntax:
+* :emoji:
+* :emoji::skin-tone-2:
+* :) :/ :( :'( :| ;) :D :P :o <-- These emojis require a start or end of string or space before or after to work, this is to avoid messing up url's for example
+
+Supports only apple emojis hosted separately.
 
 ## Usage
 
@@ -23,8 +28,7 @@ smileParse(string, emojiOpts)
 ```
 
 ## Todo:
-* Support :) :-) type emojis
-* Support skin-color in emojis
+* Support more emojis
 * Support sprites
 * Create a demo page
 * Support other emoji-libraries
