@@ -59,6 +59,9 @@ describe('smileParse :) :( etc parsing', () => {
   it('should parse :D emoji', () => {
     expect(smileParse(':D', mockOptions)).toEqual('<img style="height: 21px; position: relative; top: -3px;" src="https://mock/1f604.png" alt="smile" />')
   })
+  it('should parse crying  emoji', () => {
+    expect(smileParse(":'(", mockOptions)).toEqual('<img style="height: 21px; position: relative; top: -3px;" src="https://mock/1f622.png" alt="cry" />')
+  })
   it('should not parse :D emoji from middle of a word', () => {
     expect(smileParse(':Ddd', mockOptions)).toEqual(':Ddd')
   })

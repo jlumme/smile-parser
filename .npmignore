@@ -1,5 +1,5 @@
-src
-assets
+src/
+assets/
 npm-debug.log
 coverage
 yarn-error.log

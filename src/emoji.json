@@ -864,7 +864,7 @@
   {"emoji": ":worried:", "value":"1f61f"},
   {"emoji": ":angry:", "value":"1f620"},
   {"emoji": ":rage:", "value":"1f621"},
-  {"emoji": ":cry:", "shortcode": ":'('","value":"1f622"},
+  {"emoji": ":cry:", "shortcode": ":'(","value":"1f622"},
   {"emoji": ":persevere:", "value":"1f623"},
   {"emoji": ":triumph:", "value":"1f624"},
   {"emoji": ":disappointed_relieved:", "value":"1f625"},
