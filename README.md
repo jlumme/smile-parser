@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/jlumme/smile-parser.svg?branch=master)](https://travis-ci.org/jlumme/smile-parser)
 
 ## smile-parser
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/jlumme/smile-parser.svg)](https://greenkeeper.io/)
 This is a small library which takes a string, parses emojis out and replaces them with html image tags and returns the string.
 
 Parses emojis from given string with syntax:
