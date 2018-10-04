@@ -1,34 +1,39 @@
-const emojis = require('./emoji.json')
+const emojis = require('./minifiedEmoji.json')
 const regex = new RegExp(/:([a-zA-Z1-9+_-]*?):/)
 const toneRegex = new RegExp(/:(.*?)::(skin-tone-\d*):/)
 const emojiRegex = new RegExp(/(\B|^)((:\)|:\/|:\(|:'\(|:\||;\))\B|(:D|:P|:o)\b)/)
+let emoji
 
 export const smileParse = (str, options) => {
-  let emoji
 
   // Figure-out :) :( etc emojis
   while((emoji = emojiRegex.exec(str)) !== null) {
-    let emoticon = emojis.filter((emo) => emo.shortcode === `${emoji[0]}`)
-    str = str.replace(emoji[0], `<img ${options.styles ? `style="${options.styles}"` : ''} src="${options.url}${emoticon[0].value}.png" alt="${emoticon[0].emoji.slice(1, -1)}" />`)
+    let emoticon = emojis.find((emo) => emo.text === `${emoji[0]}`)
+    str = str.replace(emoji[0], `<img ${options.styles ? `style="${options.styles}"` : ''} src="${options.url}${emoticon.image}" alt="${emoticon.short_name}" />`)
   }
 
   //  Figure out skin-tone emojis
   while ((emoji = toneRegex.exec(str)) !== null) {
-    let firstPart = emojis.filter((emo) => emo.emoji === `:${emoji[1]}:`)
-    let secondPart = emojis.filter((emo) => emo.emoji === `:${emoji[2]}:`)
-
+    let firstPart = emojis.find((emo) => emo.short_name === `${emoji[1]}`)
+    let secondPart = emojis.find((emo) => emo.short_name === `${emoji[2]}`)
+    let printImage
     try {
-      str = str.replace(emoji[0], `<img ${options.styles ? `style="${options.styles}"` : ''} src="${options.url}${firstPart[0].value}-${secondPart[0].value}.png" alt="${emoji[1]}-${emoji[2]}" />`)
+      if (secondPart.image.length) {
+        printImage = `${firstPart.image.split('.')[0]}-${secondPart.image}`
+      } else {
+        printImage = `${firstPart.image}`
+      }
+      str = str.replace(emoji[0], `<img ${options.styles ? `style="${options.styles}"` : ''} src="${options.url}${printImage}" alt="${emoji[1]}-${emoji[2]}" />`)
     } catch (e) {
-      str = str.replace(emoji[0], `<img ${options.styles ? `style="${options.styles}"` : ''} src="${options.url}${firstPart[0].value}.png" alt="${emoji[1]}" />`)
+      str = str.replace(emoji[0], `<img ${options.styles ? `style="${options.styles}"` : ''} src="${options.url}${firstPart.image}" alt="${emoji[1]}" />`)
     }
   }
 
   //  Figure-out emojis
   while ((emoji = regex.exec(str)) !== null) {
-    let emoticon = emojis.filter((emo) => emo.emoji === `${emoji[0]}`)
+    let emoticon = emojis.find((emo) => emo.short_name === `${emoji[1]}`)
     try {
-      str = str.replace(emoji[0], `<img ${options.styles ? `style="${options.styles}"` : ''} src="${options.url}${emoticon[0].value}.png" alt="${emoji[1]}" />`)
+      str = str.replace(emoji[0], `<img ${options.styles ? `style="${options.styles}"` : ''} src="${options.url}${emoticon.image}" alt="${emoji[1]}" />`)
     } catch (e) {
       str = str.replace(emoji[0], emoji[1])
     }
