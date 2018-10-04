@@ -9,6 +9,7 @@ Parses emojis from given string with syntax:
 * :) :/ :( :'( :| ;) :D :P :o <-- These emojis require a start or end of string or space before or after to work, this is to avoid messing up url's for example
 
 Supports only apple emojis hosted separately.
+Emoji-data comes from [iamcal/emoji-data](https://github.com/iamcal/emoji-data) repository so huge thanks for him!
 
 ## Usage
 
@@ -27,8 +28,12 @@ const emojiOpts = {
 smileParse(string, emojiOpts)
 ```
 
+## Commands
+* npm run test - Runs all the test
+* npm run build - Compiles the code
+* npm run compile-emoji minifies new emoji-data to include only necessary fields
+
 ## Todo:
-* Support more emojis
 * Support sprites
 * Create a demo page
 * Support other emoji-libraries
