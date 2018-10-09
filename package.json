@@ -1,24 +1,31 @@
 {
   "name": "smile-parser",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "Emoji parser written in javascript",
   "main": "./lib/smile_parser.js",
   "repository": "https://github.com/jlumme/smile-parser.git",
   "author": "jlumme <jesse.lumme@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "compile-emoji": "node ./compile.js",
     "test": "jest --coverage",
-    "prepublish": "rimraf ./lib/* && babel src -d lib && cp ./src/emoji.json ./lib/emoji.json"
+    "build": "rimraf ./lib/* && ./node_modules/.bin/babel src --out-dir lib && cp ./src/minifiedEmoji.json ./lib/minifiedEmoji.json",
+    "prepublish": "yarn build"
   },
   "devDependencies": {
-    "babel-cli": "^6.22.2",
-    "babel-core": "^6.22.1",
-    "babel-jest": "^22.4.1",
-    "babel-preset-es2015": "^6.22.0",
-    "jest": "^22.4.2",
-    "jest-cli": "^22.4.2",
-    "rimraf": "^2.5.4",
-    "standard": "^11.0.0"
+    "@babel/cli": "7.1.2",
+    "@babel/core": "7.1.2",
+    "@babel/polyfill": "7.0.0",
+    "@babel/preset-env": "7.1.0",
+    "@babel/runtime": "7.1.2",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babel-preset-minify": "^0.5.0",
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0",
+    "prettier": "^1.14.3",
+    "rimraf": "^2.6.2",
+    "standard": "^12.0.1"
   },
   "jest": {
     "transform": {
@@ -30,11 +37,24 @@
       "es6"
     ],
     "collectCoverageFrom": [
-      "**/*.js",
+      "./src/**/*.js",
       "!**/node_modules/**",
       "!**/coverage/**",
       "!**/lib/**"
     ]
+  },
+  "babel": {
+    "presets": [
+      "minify",
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "entry",
+          "targets": "> 0.25%, not dead"
+        }
+      ]
+    ],
+    "comments": false
   },
   "keywords": [
     "emoji",
