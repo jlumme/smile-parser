@@ -1,4 +1,4 @@
-import { smileParse } from "../index.js";
+import { smileParse } from "../smile_parser.js";
 
 const mockOptions = {
   url: "https://mock/",
