@@ -3,3 +3,4 @@ assets/
 npm-debug.log
 coverage
 yarn-error.log
+.github/
