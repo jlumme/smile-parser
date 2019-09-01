@@ -9,7 +9,7 @@
   "scripts": {
     "compile-emoji": "node ./compile.js",
     "test": "jest --coverage",
-    "build": "rimraf ./lib/* && terser --compress --mangle -- ./src/smile_parser.js > ./lib/smile_parser.js && ncp ./src/minifiedEmoji.json ./lib/minifiedEmoji.json",
+    "build": "rimraf ./lib/* && ncp ./src/minifiedEmoji.json ./lib/minifiedEmoji.json && terser --compress --mangle -- ./src/smile_parser.js > ./lib/smile_parser.js",
     "prepublish": "npm run build"
   },
   "devDependencies": {
