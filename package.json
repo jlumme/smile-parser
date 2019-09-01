@@ -1,6 +1,6 @@
 {
   "name": "smile-parser",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Emoji parser written in javascript",
   "main": "./lib/smile_parser.js",
   "repository": "https://github.com/jlumme/smile-parser.git",
