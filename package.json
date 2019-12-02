@@ -28,7 +28,7 @@
     "prettier": "1.18.2",
     "rimraf": "3.0.0",
     "semantic-release": "^15.13.24",
-    "terser": "4.2.1"
+    "terser": "4.4.2"
   },
   "jest": {
     "transform": {
