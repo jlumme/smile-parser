@@ -16,7 +16,7 @@
     "@babel/cli": "7.7.5",
     "@babel/core": "7.7.5",
     "@babel/preset-env": "7.7.5",
-    "@babel/runtime": "7.5.5",
+    "@babel/runtime": "7.7.5",
     "@semantic-release/commit-analyzer": "^6.3.0",
     "@semantic-release/git": "^7.0.16",
     "@semantic-release/npm": "^5.1.15",
